@@ -2,14 +2,13 @@ package edu.ucalgary.oop;
 
 import java.util.Objects;
 
-public class Task implements Cloneable, TodoList {
+public class Task implements Cloneable, ToDoList {
 
     private boolean isCompleted = false;
-    private int id;
+    private String id;
     private String title;
 
-    public Task(boolean isCompleted, int id, String title) {
-        this.isCompleted = isCompleted;
+    public Task(String id, String title) {
         this.id = id;
         this.title = title;
     }
@@ -22,11 +21,11 @@ public class Task implements Cloneable, TodoList {
         this.isCompleted = isCompleted;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

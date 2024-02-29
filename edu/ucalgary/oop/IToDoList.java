@@ -8,13 +8,13 @@ import edu.ucalgary.oop.Task;
 interface IToDoList {
     public void addTask(Task task);
 
-    public void completeTask(int taskId);
+    public void completeTask(String taskId);
 
-    public void deleteTask(int taskId);
+    public void deleteTask(String taskId);
 
-    public void editTask(int taskId, String editedTitle);
+    public void editTask(String taskId, String editedTitle);
 
     public void undo();
 
-    public List<Object> listTasks();
+    public List<Task> listTasks();
 }

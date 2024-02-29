@@ -7,8 +7,8 @@ import edu.ucalgary.oop.Task;
 
 class ToDoList implements IToDoList {
 
-    private List<Object> taskList = new List<Object>();
-    private Stack<List<Object>> changes = new Stack<List<Object>>();
+    private List<Task> taskList = new List<Task>();
+    private Stack<List<Task>> changes = new Stack<List<Task>>();
 
     @Override
     public void addTask(Task task) {
@@ -16,7 +16,7 @@ class ToDoList implements IToDoList {
     }
 
     @Override
-    public void completeTask(int taskId) {
+    public void completeTask(String taskId) {
         changes.push(taskList);
         for (int i = 0; i < taskList.size(); i++) {
             Task task = taskList.get(i);
@@ -27,7 +27,7 @@ class ToDoList implements IToDoList {
     }
 
     @Override
-    public void deleteTask(int taskId) {
+    public void deleteTask(String taskId) {
         changes.push(taskList);
         for (int i = 0; i < taskList.size(); i++) {
             Task task = taskList.get(i);
@@ -38,7 +38,7 @@ class ToDoList implements IToDoList {
     }
 
     @Override
-    public void editTask(int taskId, String editedTitle) {
+    public void editTask(String taskId, String editedTitle) {
         changes.push(taskList);
         for (int i = 0; i < taskList.size(); i++) {
             Task task = taskList.get(i);
@@ -55,7 +55,7 @@ class ToDoList implements IToDoList {
     }
 
     @Override
-    public List<Object> listTasks() {
+    public List<Task> listTasks() {
         return taskList;
     }
 }
