@@ -1,5 +1,6 @@
 package edu.ucalgary.oop;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -7,7 +8,7 @@ import edu.ucalgary.oop.Task;
 
 class ToDoList implements IToDoList {
 
-    private List<Task> taskList = new List<Task>();
+    private List<Task> taskList = new ArrayList<Task>();
     private Stack<List<Task>> changes = new Stack<List<Task>>();
 
     @Override
@@ -38,13 +39,14 @@ class ToDoList implements IToDoList {
     }
 
     @Override
-    public void editTask(String taskId, String editedTitle) {
+    public void editTask(String taskId, String editedTitle, boolean newTaskStatus) {
         changes.push(taskList);
         for (int i = 0; i < taskList.size(); i++) {
             Task task = taskList.get(i);
             if (task.getId() == taskId) {
                 task.setId(taskId);
                 task.setTitle(editedTitle);
+                task.setIsCompleted(newTaskStatus);
             }
         }
     }

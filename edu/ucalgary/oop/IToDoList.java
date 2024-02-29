@@ -12,7 +12,7 @@ interface IToDoList {
 
     public void deleteTask(String taskId);
 
-    public void editTask(String taskId, String editedTitle);
+    public void editTask(String taskId, String editedTitle, boolean newTaskStatus);
 
     public void undo();
 

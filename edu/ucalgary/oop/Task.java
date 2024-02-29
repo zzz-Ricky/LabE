@@ -2,7 +2,7 @@ package edu.ucalgary.oop;
 
 import java.util.Objects;
 
-public class Task implements Cloneable, ToDoList {
+public class Task implements Cloneable {
 
     private boolean isCompleted = false;
     private String id;
@@ -13,7 +13,7 @@ public class Task implements Cloneable, ToDoList {
         this.title = title;
     }
 
-    public boolean getIsCompleted() {
+    public boolean isCompleted() {
         return isCompleted;
     }
 
