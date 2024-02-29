@@ -2,16 +2,58 @@ package edu.ucalgary.oop;
 
 import java.util.Objects;
 
-public class Task {
+public class Task implements Cloneable, TodoList {
+
+    private boolean isCompleted = false;
+    private int id;
+    private String title;
+
+    public Task(boolean isCompleted, int id, String title) {
+        this.isCompleted = isCompleted;
+        this.id = id;
+        this.title = title;
+    }
+
+    public boolean getIsCompleted() {
+        return isCompleted;
+    }
+
+    public void setIsCompleted(boolean isCompleted) {
+        this.isCompleted = isCompleted;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Task copy = (Task) super.clone();
+        return copy;
+    }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
         Task task = (Task) obj;
         return Objects.equals(id, task.id) &&
-               Objects.equals(title, task.title) &&
-               isCompleted == task.isCompleted; 
+                Objects.equals(title, task.title) &&
+                isCompleted == task.isCompleted;
     }
 
     @Override
