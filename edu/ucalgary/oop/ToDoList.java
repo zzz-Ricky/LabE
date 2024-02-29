@@ -1,15 +1,14 @@
 package edu.ucalgary.oop;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.List;
+import java.util.Stack;
 
 import edu.ucalgary.oop.Task;
 
 class ToDoList implements IToDoList {
 
     private List<Object> taskList = new List<Object>();
-    private Deque<List<Object>> changes = new ArrayDeque<>();
+    private Stack<List<Object>> changes = new Stack<List<Object>>();
 
     @Override
     public void addTask(Task task) {
