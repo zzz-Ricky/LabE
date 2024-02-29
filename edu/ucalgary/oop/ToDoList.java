@@ -13,6 +13,7 @@ class ToDoList implements IToDoList {
 
     @Override
     public void addTask(Task task) {
+        changes.push(taskList);
         taskList.add(task);
     }
 
@@ -53,7 +54,9 @@ class ToDoList implements IToDoList {
 
     @Override
     public void undo() {
-        taskList = changes.pop();
+        if (!changes.isEmpty()) {
+            taskList = changes.pop();
+        }
     }
 
     @Override
